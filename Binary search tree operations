@@ -37,6 +37,7 @@ class Node:
                 self.right.search(ele)
             else:
                 print("not found")
+
 root=Node(40)
 while True:
     print()
