@@ -1,0 +1,53 @@
+class Node:
+    def __init__(self,x):
+        self.data=x
+        self.left=None
+        self.right=None
+    def insert(self,x):
+        if self.data==None:
+            self.data=x
+            return
+        if self.data>x:
+            if self.left is None:
+                self.left=Node(x)
+            else:
+                self.left.insert(x)
+        else:
+            if self.right is None:
+                self.right=Node(x)
+            else:
+                self.right.insert(x)
+    def inorder(self):
+        if self.left:
+            self.left.inorder()
+        print(self.data,end=" ")
+        if self.right:
+            self.right.inorder()
+    def preorder(self):
+        print(self.data,end=" ")
+        if self.left:
+            self.left.preorder()
+        if self.right:
+            self.right.preorder()
+    def postorder(self):
+        if self.left:
+            self.left.preorder()
+        if self.right:
+            self.right.preorder()
+        print(self.data,end=" ")
+root=Node(30)
+while True:
+    print("1.insert\n2.inorder\n3.preorder\n4.postorder")
+    ch=int(input("enter your choice:"))
+    if ch==1:
+        x=int(input("enter element:"))
+        root.insert(x)
+    elif ch==2:
+        root.inorder()
+    elif ch==3:
+        root.preorder()
+    elif ch==4:
+        root.postorder()
+    else:
+        break
+        
